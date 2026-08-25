@@ -20,11 +20,7 @@ export const Route = createFileRoute("/verify-certificate")({
 });
 
 function VerifyCertificatePage() {
-  const items = KNOWLEDGE_BASE.verification.map((body) => {
-    const first = body.split(/[.:]/)[0] ?? body;
-    const title = first.length > 60 ? `${first.slice(0, 57)}...` : first;
-    return { title, body: body as string };
-  });
+  const items = KNOWLEDGE_BASE.verification;
 
   return (
     <PageShell eyebrow="Verification" title="Verify a Certificate" description={DESCRIPTION}>

@@ -20,11 +20,7 @@ export const Route = createFileRoute("/courses")({
 });
 
 function CoursesPage() {
-  const items = KNOWLEDGE_BASE.courses.map((body) => {
-    const first = body.split(/[.:]/)[0] ?? body;
-    const title = first.length > 60 ? `${first.slice(0, 57)}...` : first;
-    return { title, body: body as string };
-  });
+  const items = KNOWLEDGE_BASE.courses;
 
   return (
     <PageShell eyebrow="Courses" title="Courses & Learning Paths" description={DESCRIPTION}>

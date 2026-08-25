@@ -60,16 +60,18 @@ export function PageShell({
   );
 }
 
-export function InfoCards({ items }: { items: Array<{ title: string; body: string }> }) {
+export function InfoCards({ items }: { items: readonly string[] }) {
   return (
     <section className="grid gap-4 sm:grid-cols-2">
-      {items.map((item) => (
+      {items.map((body, index) => (
         <article
-          key={item.title}
+          key={body}
           className="rounded-2xl border border-border bg-card p-5 shadow-bubble transition hover:-translate-y-0.5 hover:border-highlight"
         >
-          <h2 className="font-display text-base font-semibold text-foreground">{item.title}</h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+          <span className="font-display inline-flex h-8 w-8 items-center justify-center rounded-lg bg-brand-soft text-xs font-bold text-brand">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <p className="mt-3 text-sm leading-relaxed text-foreground">{body}</p>
         </article>
       ))}
     </section>

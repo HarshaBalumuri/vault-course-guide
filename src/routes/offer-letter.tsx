@@ -20,11 +20,7 @@ export const Route = createFileRoute("/offer-letter")({
 });
 
 function OfferLetterPage() {
-  const items = KNOWLEDGE_BASE.offerLetters.map((body) => {
-    const first = body.split(/[.:]/)[0] ?? body;
-    const title = first.length > 60 ? `${first.slice(0, 57)}...` : first;
-    return { title, body: body as string };
-  });
+  const items = KNOWLEDGE_BASE.offerLetters;
 
   return (
     <PageShell eyebrow="Offer Letters" title="Internship Offer Letters" description={DESCRIPTION}>

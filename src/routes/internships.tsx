@@ -20,11 +20,7 @@ export const Route = createFileRoute("/internships")({
 });
 
 function InternshipsPage() {
-  const items = KNOWLEDGE_BASE.internships.map((body) => {
-    const first = body.split(/[.:]/)[0] ?? body;
-    const title = first.length > 60 ? `${first.slice(0, 57)}...` : first;
-    return { title, body: body as string };
-  });
+  const items = KNOWLEDGE_BASE.internships;
 
   return (
     <PageShell eyebrow="Internships" title="Internship Programs" description={DESCRIPTION}>

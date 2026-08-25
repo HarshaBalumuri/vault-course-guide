@@ -20,11 +20,7 @@ export const Route = createFileRoute("/certificates")({
 });
 
 function CertificatesPage() {
-  const items = KNOWLEDGE_BASE.certificates.map((body) => {
-    const first = body.split(/[.:]/)[0] ?? body;
-    const title = first.length > 60 ? `${first.slice(0, 57)}...` : first;
-    return { title, body: body as string };
-  });
+  const items = KNOWLEDGE_BASE.certificates;
 
   return (
     <PageShell eyebrow="Certificates" title="Certificates & Completion Documents" description={DESCRIPTION}>
