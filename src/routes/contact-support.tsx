@@ -20,10 +20,10 @@ export const Route = createFileRoute("/contact-support")({
 });
 
 function ContactSupportPage() {
-  const items = KNOWLEDGE_BASE.supportProcess.map((body, i) => ({
-    title: `Good to know ${i + 1}`,
-    body,
-  }));
+  const items = KNOWLEDGE_BASE.supportProcess.map((body) => {
+    const [first] = body.split(/[.:]/);
+    return { title: first.length > 60 ? `${first.slice(0, 57)}...` : first, body };
+  });
 
   return (
     <PageShell eyebrow="Support" title="Contact Support" description={DESCRIPTION}>
