@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
+import { Link } from "@tanstack/react-router";
 import { MessageCircle, X, Send, Bot, ArrowUpRight, RefreshCw } from "lucide-react";
 import { sendSupportMessage, type ChatReply } from "@/lib/support-chat.functions";
 import {
@@ -180,13 +181,13 @@ export function SupportChat() {
                   </div>
 
                   {m.link && (
-                    <a
-                      href={m.link.path}
+                    <Link
+                      to={m.link.path as "/"}
                       className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-foreground transition hover:border-highlight hover:text-brand"
                     >
                       {m.link.label}
                       <ArrowUpRight className="h-3.5 w-3.5" />
-                    </a>
+                    </Link>
                   )}
 
                   {m.escalate && <WhatsAppButton />}
