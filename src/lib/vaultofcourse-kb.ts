@@ -11,7 +11,7 @@ export const SITE_ROUTES = {
   offerLetters: "/offer-letter",
   training: "/training-programs",
   workshops: "/workshops",
-  support: "/contact",
+  support: "/contact-support",
   whatsapp: "https://wa.me/YOUR_NUMBER",
 } as const;
 

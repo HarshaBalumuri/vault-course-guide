@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { GraduationCap, Briefcase, ShieldCheck, FileText, Trophy, MessageSquare } from "lucide-react";
 import { SupportChat } from "@/components/SupportChat";
 import { SITE_ROUTES, TEST_QUERIES } from "@/lib/vaultofcourse-kb";
@@ -32,7 +32,7 @@ const HELP_TOPICS = [
   { icon: FileText, title: "Offer Letters", desc: "When offer letters are issued and where to find them.", path: SITE_ROUTES.offerLetters },
   { icon: ShieldCheck, title: "Verification", desc: "Verify any certificate using its unique certificate ID.", path: SITE_ROUTES.verification },
   { icon: MessageSquare, title: "Support", desc: "Account, payment or document issues go to our team.", path: SITE_ROUTES.support },
-];
+] as const;
 
 function Index() {
   return (
@@ -41,12 +41,12 @@ function Index() {
         <span className="font-display text-lg font-bold tracking-tight text-foreground">
           Vault<span className="text-brand">Of</span>Course
         </span>
-        <a
-          href={SITE_ROUTES.support}
+        <Link
+          to={SITE_ROUTES.support}
           className="rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground transition hover:border-highlight hover:text-brand"
         >
           Contact
-        </a>
+        </Link>
       </header>
 
       <main className="mx-auto max-w-5xl px-5 pb-28">
@@ -69,9 +69,9 @@ function Index() {
 
         <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {HELP_TOPICS.map(({ icon: Icon, title, desc, path }) => (
-            <a
+            <Link
               key={title}
-              href={path}
+              to={path}
               className="group rounded-2xl border border-border bg-card p-5 shadow-bubble transition hover:-translate-y-0.5 hover:border-highlight"
             >
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-soft text-brand">
@@ -79,7 +79,7 @@ function Index() {
               </span>
               <h2 className="font-display mt-4 text-base font-semibold text-foreground">{title}</h2>
               <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-            </a>
+            </Link>
           ))}
         </section>
 
