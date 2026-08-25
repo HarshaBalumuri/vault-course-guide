@@ -1,333 +1,133 @@
-# Vault Guardian
-
-Build a modern AI-powered website support chatbot called VaultOfCourse Support Assistant.
-
-Project Goal
-
-Create a responsive chatbot for the VaultOfCourse website that acts as a first-level support assistant for students and visitors.
-
-The chatbot should help users with:
-
-Courses
-
-Training Programs
-
-Internships
-
-Workshops
-
-Certificates
-
-Offer Letters
-
-Certificate Verification
-
-Course Access
-
-Website Navigation
-
-General FAQs
-
-The chatbot must answer only using the provided knowledge base and website information. It must never hallucinate or invent information.
-
-UI Requirements
-
-Create a professional chatbot interface with:
-
-Floating chat button at bottom-right
-
-Modern chat window
-
-User messages
-
-Bot messages
-
-Typing/loading animation
-
-Suggested quick action buttons
-
-Mobile responsive design
-
-WhatsApp Support button
-
-Smooth animations
-
-Clean professional theme
-
-Suggested Quick Actions
-
-Display these when chat opens:
-
-🎓 Explore Courses
-
-💼 Internship Information
-
-📜 Certificate Verification
-
-📄 Offer Letter
-
-🏆 Training Programs
-
-❓ General Help
-
-💬 Contact Support
-
-Intent Classification System
-
-Classify user messages into:
-
-course_inquiry
-
-training_inquiry
-
-internship_inquiry
-
-workshop_inquiry
-
-certificate_query
-
-certificate_verification
-
-offer_letter_query
-
-enrollment_query
-
-payment_query
-
-website_navigation
-
-technical_support
-
-human_support
-
-general_query
-
-unknown
-
-AI System Prompt
-
-You are the official VaultOfCourse website support assistant.
-
-Your responsibilities:
-
-Answer common student queries
-
-Provide accurate information
-
-Guide users to relevant website pages
-
-Help users navigate the website
-
-Redirect unresolved issues to WhatsApp support
-
-Rules:
-
-Never invent course details
-
-Never invent fees
-
-Never promise refunds
-
-Never claim access to student accounts
-
-Never provide false information
-
-Never claim an issue is resolved
-
-Only answer using available knowledge
-
-If information is unavailable, escalate to support
-
-Smart Routing Logic
-
-If user asks:
-
-"What courses are available?"
-
-→ Show courses page.
-
-"How do I apply for an internship?"
-
-→ Show internship page.
-
-"Where can I verify my certificate?"
-
-→ Show certificate verification page.
-
-"My certificate has the wrong name."
-
-→ Escalate to WhatsApp support.
-
-"I paid but didn't get access."
-
-→ Escalate to WhatsApp support.
-
-"I want to talk to a human."
-
-→ Show WhatsApp support immediately.
-
-Escalation Flow
-
-The chatbot must escalate when users mention:
-
-Payment issues
-
-Refund requests
-
-Certificate corrections
-
-Missing certificates
-
-Missing offer letters
-
-Enrollment issues
-
-Internship disputes
-
-Account-specific problems
-
-Technical problems
-
-Human assistance requests
-
-Escalation Message:
-
-"This issue requires our support team to review your details. Please contact us on WhatsApp and our team will assist you."
-
-Display a large green WhatsApp button.
-
-Conversation Memory
-
-Maintain context throughout the session.
-
-Example:
-
-User: Tell me about the Python course.
-
-Bot: Gives details.
-
-User: What's its duration?
-
-Bot: Understands "its" refers to Python course.
-
-Unknown Questions
-
-If information is unavailable:
-
-"I'm not able to find reliable information about that. Please contact our support team on WhatsApp for assistance."
-
-Never guess.
-
-Knowledge Base Structure
-
-Create sections for:
-
-Courses
-
-Training Programs
-
-Internships
-
-Workshops
-
-Certificates
-
-Offer Letters
-
-Verification
-
-FAQs
-
-Website Pages
-
-Support Process
-
-Website Routing Configuration
-
-Create a configuration object:
-
-{
-courses: "/courses",
-internships: "/internships",
-certificates: "/certificates",
-verification: "/verify-certificate",
-offerLetters: "/offer-letter",
-training: "/training-programs",
-support: "/contact",
-whatsapp: "https://wa.me/YOUR_NUMBER"
-}
-
-Technical Stack
-
-React
-
-TypeScript
-
-Tailwind CSS
-
-OpenAI API integration
-
-Intent classification layer
-
-Context memory
-
-Knowledge base retrieval
-
-Responsive design
-
-Deliverables
-
-Generate:
-
-Complete chatbot UI
-
-Intent classification system
-
-AI prompt architecture
-
-Knowledge base structure
-
-Website page routing system
-
-WhatsApp escalation flow
-
-Sample FAQ dataset
-
-Test queries
-
-Mobile responsive design
-
-Production-ready code
-
-Final objective:
-
-Understand → Answer → Guide → Redirect
-
-If the chatbot knows the answer, answer.
-
-If the answer exists on the website, provide the page link.
-
-If human assistance is needed, redirect to WhatsApp support.
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://vault-course-guide.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/1689ca97-5b52-4e73-9578-a872b78b4203).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+# VaultOfCourse Support Assistant
+
+## Overview
+
+VaultOfCourse Support Assistant is an AI-powered chatbot developed to provide first-level support for students and website visitors. The chatbot helps users find information related to courses, training programs, internships, certificates, offer letters, certificate verification, and website navigation.
+
+The system is designed to answer common queries, guide users to relevant pages, and escalate unresolved issues to WhatsApp support when human assistance is required.
+
+## Features
+
+* AI-powered student support chatbot
+* Course and training program inquiries
+* Internship information and guidance
+* Certificate and offer letter assistance
+* Certificate verification support
+* Website navigation assistance
+* Intent detection and classification
+* WhatsApp support escalation
+* Responsive user interface
+* Mobile and desktop compatibility
+* Conversation memory support
+
+## Supported Intents
+
+* course_inquiry
+* training_inquiry
+* internship_inquiry
+* workshop_inquiry
+* certificate_query
+* certificate_verification
+* offer_letter_query
+* enrollment_query
+* payment_query
+* website_navigation
+* technical_support
+* human_support
+* general_query
+* unknown
+
+## Technology Stack
+
+* React
+* TypeScript
+* Tailwind CSS
+* Vercel Deployment
+* AI-based Intent Classification
+* Responsive UI Components
+
+## Project Structure
+
+```text
+src/
+├── components/
+├── pages/
+├── services/
+├── hooks/
+├── utils/
+├── App.tsx
+└── main.tsx
+```
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/HarshaBalumuri/vault-course-guide.git
+```
+
+### Navigate to Project
+
+```bash
+cd vault-course-guide
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start Development Server
+
+```bash
 npm run dev
 ```
+
+### Build Project
+
+```bash
+npm run build
+```
+
+## Live Demo
+
+Website:
+
+https://vault-course-guide.vercel.app/
+
+## Source Code
+
+Google Drive:
+
+https://drive.google.com/file/d/1C6B1N-ZWr8UC5Rq_hSWwa6t_V5jpU_R6/view?usp=drive_link
+
+## GitHub Repository
+
+https://github.com/HarshaBalumuri/vault-course-guide.git
+
+## Usage
+
+1. Open the website.
+2. Click on the chatbot icon.
+3. Select a suggested question or type your query.
+4. Receive AI-powered assistance.
+5. If the issue requires human intervention, use the WhatsApp support option.
+
+## Future Enhancements
+
+* OpenAI API integration
+* Database-backed knowledge base
+* User authentication
+* Multi-language support
+* Analytics dashboard
+* Admin panel for chatbot management
+
+## Developer
+
+**Harsha Balumuri**
+
+## License
+
+This project is developed for educational and internship submission purposes.
